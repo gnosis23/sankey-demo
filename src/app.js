@@ -54,16 +54,6 @@
     ],
   };
 
-  /**
-   * attributes:
-   * - id
-   * - x
-   * - y
-   * - width
-   * - height
-   * - lSum - used left height
-   * - rSum - used right height
-   */
   const positionMap = {
   };
 
@@ -127,7 +117,7 @@
       .append('rect')
       .attr('class', 'page')
       .attr('fill', '#c1daf9')
-      .attr('x', function(d, i) {
+      .attr('x', function(d) {
         positionMap[d.id] = {
           id: d.id,
           x: (rect_width + horizontal_gap) * idx,
@@ -139,7 +129,7 @@
         };
         return (rect_width + horizontal_gap) * idx;
       })
-      .attr('y', function(d, i) {
+      .attr('y', function(d) {
         const old = ySum;
         ySum += (scale(d.session) + vertical_gap);
         positionMap[d.id].y = old;
@@ -161,7 +151,7 @@
     ySum = 0;
     columnContainer.append('text')
       .text(function(d) { return d.name; })
-      .attr('x', function(d, i) {
+      .attr('x', function() {
         return (rect_width + horizontal_gap) * idx;
       })
       .attr('y', function(d, i) {
@@ -174,10 +164,10 @@
     ySum = 0;
     columnContainer.append('text')
       .text(function(d) { return d.session; })
-      .attr('x', function(d, i) {
+      .attr('x', function() {
         return (rect_width + horizontal_gap) * idx;
       })
-      .attr('y', function(d, i) {
+      .attr('y', function(d) {
         const old = ySum + 20 + 20;
         ySum += (scale(d.session) + vertical_gap);
         return old;
@@ -191,7 +181,7 @@
   //      draw edges
   // ===========================================================================
   edges.forEach(function(group) {
-    group.forEach(function(edge1, idx) {
+    group.forEach(function(edge1) {
       const info = calcDistance(positionMap[edge1.from], positionMap[edge1.to], edge1);
       // console.log(info);
       svg.append("path")
