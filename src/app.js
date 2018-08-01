@@ -137,12 +137,6 @@
       .attr('width', rect_width)
       .attr('height', function(d) { return scale(d.session); })
       .attr('style', 'fill:url(#myLinearGradient1)')
-      .on("mouseover",function(){
-        d3.select(this).attr("fill", "#9ab8da")
-      })
-      .on("mouseout", function(){
-        d3.select(this).attr("fill","#c1daf9")
-      })
       ;
         
     const columnContainer = svg.selectAll('g.column-' + idx)
@@ -152,26 +146,28 @@
     columnContainer.append('text')
       .text(function(d) { return d.name; })
       .attr('x', function() {
-        return (rect_width + horizontal_gap) * idx;
+        return (rect_width + horizontal_gap) * idx + 5;
       })
       .attr('y', function(d, i) {
         const old = ySum + 20;
         ySum += (scale(d.session) + vertical_gap);
         return old;
       })
+      .attr('class', 'title')
       ;
     
     ySum = 0;
     columnContainer.append('text')
       .text(function(d) { return d.session; })
       .attr('x', function() {
-        return (rect_width + horizontal_gap) * idx;
+        return (rect_width + horizontal_gap) * idx + 5;
       })
       .attr('y', function(d) {
-        const old = ySum + 20 + 20;
+        const old = ySum + 20 + 14;
         ySum += (scale(d.session) + vertical_gap);
         return old;
       })
+      .attr('class', 'title')
       ;
   });
 
