@@ -94,8 +94,7 @@
   // ===========================================================================
   //      procedure
   // ===========================================================================
-  const svg = d3.select('body')
-    .append('svg')
+  const svg = d3.select('.mainSvg')
     .attr('width', initWidth)
     .attr('height', initHeight)
     ;
@@ -137,6 +136,7 @@
       })
       .attr('width', rect_width)
       .attr('height', function(d) { return scale(d.session); })
+      .attr('style', 'fill:url(#myLinearGradient1)')
       .on("mouseover",function(){
         d3.select(this).attr("fill", "#9ab8da")
       })
