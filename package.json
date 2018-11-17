@@ -1,0 +1,23 @@
+{
+  "name": "sankey-demo",
+  "version": "1.0.0",
+  "description": "![sankey](https://github.com/gnosis23/sankey-demo/blob/master/resources/2018-08-01.png?raw=true)",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnosis23/sankey-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gnosis23/sankey-demo/issues"
+  },
+  "homepage": "https://github.com/gnosis23/sankey-demo#readme",
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
