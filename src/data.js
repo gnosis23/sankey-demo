@@ -66,8 +66,8 @@ export const graphData = {
         { id: 7, value: 1400 },
         { id: 8, value: 1200 },
         { id: 9, value: 1000 },
-        { id: 10, value: 700 },
-        { id: 11, value: 1400 },
+        { id: 10, value: 70 },
+        { id: 11, value: 14 },
       ],
       edgeProperty: [
         { id: 0, value: 6000 },

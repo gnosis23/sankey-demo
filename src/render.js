@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 const initWidth = 960;
 const initHeight = 500;
-const verticalGap = 20;
+const verticalGap = 50;
 const horizontalGap = 100;
 const rectWidth = 150;
 const edgeOpacity = 0.8;
@@ -49,7 +49,7 @@ export function render0(data, domSelector) {
     let ySum = 0;
     const scale = d3.scaleLinear()
       .domain([0, d3.sum(node[0], d => d.value)])
-      .range([0, initHeight - 200]);
+      .range([10, initHeight - 200]);
     svg.append('g')
       .selectAll('rect')
       .data(node[idx])
