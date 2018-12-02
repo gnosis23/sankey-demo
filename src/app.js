@@ -2,6 +2,7 @@
 import { graphData } from './data.js';
 import { loadGraph0 } from './load.js';
 import { render0 } from './render.js';
+import sankey from './layout.js';
 
 /**
  *
@@ -10,5 +11,7 @@ import { render0 } from './render.js';
 // eslint-disable-next-line
 (function () {
   const info = loadGraph0(graphData);
-  render0(info, '.mainSvg');
+  const layout = sankey().nodes(info.nodes).edges(info.edges);
+  const data = layout();
+  render0(data, '.mainSvg');
 })();

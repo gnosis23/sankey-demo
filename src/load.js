@@ -27,18 +27,6 @@ function transformGraphData0(data) {
     nodes[x.id].value = x.value;
   });
 
-  const steps = [];
-
-  // group by level
-  for (let i = 0; i < nodes.length; i += 1) {
-    const { level } = nodes[i];
-    // eslint-disable-next-line no-continue
-    if (level === -1) continue;
-
-    if (steps[level] === undefined) steps[level] = [];
-    steps[level].push(nodes[i]);
-  }
-
   const edges = [];
 
   // copy edge
@@ -54,19 +42,7 @@ function transformGraphData0(data) {
     edges[x.id].value = x.value;
   });
 
-  // group by level
-  const edgeSteps = [];
-  for (let i = 0; i < edges.length; i += 1) {
-    const no = edges[i].from;
-    const { level } = nodes[no];
-    // eslint-disable-next-line no-continue
-    if (level === -1) continue;
-
-    if (edgeSteps[level] === undefined) edgeSteps[level] = [];
-    edgeSteps[level].push(edges[i]);
-  }
-
-  return { node: steps, edge: edgeSteps };
+  return { nodes, edges };
 }
 
 /**
