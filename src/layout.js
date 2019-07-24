@@ -1,7 +1,7 @@
 /**
  *
  * data structures
- * Node = { id, x, y, yName, yValue, width, height, value, lSum, rSum }
+ * Node = { id, name, x, y, yName, yValue, width, height, value, lSum, rSum }
  * Edge = { from, to, value, d }
  *
  *
@@ -86,6 +86,7 @@ export default function () {
       node[idx].forEach((d) => {
         positionMap[d.id] = {
           id: d.id,
+          name: d.name,
           x: (rectWidth + horizontalGap) * idx,
           y: ySum,
           yName: ySumName + 20,
